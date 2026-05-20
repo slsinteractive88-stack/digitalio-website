@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Products &amp; Technology Services</title>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #0a0a0f;
+      --surface: #12121a;
+      --border: #1e1e2e;
+      --text: #e4e4e7;
+      --muted: #a1a1aa;
+      --accent: #6366f1;
+      --accent-glow: rgba(99, 102, 241, 0.15);
+      --green: #22c55e;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Nav ─────────────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(10, 10, 15, 0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    nav .logo {
+      font-weight: 700; font-size: 1.1rem; letter-spacing: -0.02em;
+      color: var(--text); text-decoration: none;
+    }
+    nav .logo span { color: var(--accent); }
+    nav .nav-links { display: flex; gap: 2rem; list-style: none; }
+    nav .nav-links a {
+      color: var(--muted); text-decoration: none; font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+    nav .nav-links a:hover { color: var(--text); }
+
+    /* ── Hero ────────────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center;
+      padding: 8rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; top: -50%; left: 50%; transform: translateX(-50%);
+      width: 800px; height: 800px;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 800; letter-spacing: -0.03em; line-height: 1.15;
+      max-width: 800px;
+      position: relative;
+    }
+    .hero h1 .highlight {
+      background: linear-gradient(135deg, #6366f1, #a855f7, #6366f1);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero p {
+      margin-top: 1.5rem;
+      font-size: 1.15rem; color: var(--muted); max-width: 560px;
+      position: relative;
+    }
+    .hero .cta-row {
+      margin-top: 2.5rem; display: flex; gap: 1rem; flex-wrap: wrap;
+      justify-content: center; position: relative;
+    }
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.85rem 1.75rem; border-radius: 10px;
+      font-size: 0.95rem; font-weight: 600; text-decoration: none;
+      transition: all 0.2s; cursor: pointer; border: none;
+    }
+    .btn-primary {
+      background: var(--accent); color: #fff;
+      box-shadow: 0 4px 24px var(--accent-glow);
+    }
+    .btn-primary:hover { background: #4f46e5; transform: translateY(-1px); }
+    .btn-ghost {
+      background: transparent; color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-ghost:hover { border-color: var(--muted); }
+
+    /* ── Section base ────────────────────────────────────── */
+    section { padding: 6rem 2rem; max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.8rem; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--accent); margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 700; letter-spacing: -0.02em; margin-bottom: 1rem;
+    }
+    .section-desc { color: var(--muted); max-width: 600px; font-size: 1.05rem; }
+
+    /* ── Products ────────────────────────────────────────── */
+    #products { padding-top: 4rem; }
+    .products-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem; margin-top: 3rem;
+    }
+    .product-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 16px; padding: 2rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .product-card:hover {
+      border-color: var(--accent); transform: translateY(-2px);
+    }
+    .product-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      background: var(--accent-glow); display: flex; align-items: center;
+      justify-content: center; font-size: 1.4rem; margin-bottom: 1.25rem;
+    }
+    .product-card h3 { font-size: 1.15rem; font-weight: 600; margin-bottom: 0.5rem; }
+    .product-card p { color: var(--muted); font-size: 0.925rem; line-height: 1.6; }
+    .product-tag {
+      display: inline-block; margin-top: 1rem;
+      font-size: 0.75rem; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.05em; color: var(--green);
+      background: rgba(34, 197, 94, 0.1); padding: 0.3rem 0.75rem;
+      border-radius: 6px;
+    }
+
+    /* ── Services ────────────────────────────────────────── */
+    #services { padding-top: 2rem; }
+    .services-list {
+      display: grid; gap: 0; margin-top: 2.5rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 16px; overflow: hidden;
+    }
+    .service-row {
+      display: flex; align-items: flex-start; gap: 1.25rem;
+      padding: 1.75rem 2rem; border-bottom: 1px solid var(--border);
+    }
+    .service-row:last-child { border-bottom: none; }
+    .service-icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: var(--accent-glow); display: flex; align-items: center;
+      justify-content: center; font-size: 1.1rem; flex-shrink: 0;
+    }
+    .service-row h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.3rem; }
+    .service-row p { color: var(--muted); font-size: 0.9rem; }
+
+    /* ── About ───────────────────────────────────────────── */
+    #about .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
+      align-items: start; margin-top: 2.5rem;
+    }
+    .about-text p { color: var(--muted); margin-bottom: 1rem; font-size: 1rem; }
+    .stats {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+    }
+    .stat-box {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 14px; padding: 1.5rem; text-align: center;
+    }
+    .stat-box .num { font-size: 1.8rem; font-weight: 800; color: var(--accent); }
+    .stat-box .label { font-size: 0.8rem; color: var(--muted); margin-top: 0.25rem; }
+
+    /* ── Contact ─────────────────────────────────────────── */
+    #contact { text-align: center; }
+    .contact-box {
+      margin-top: 2.5rem; display: inline-flex; flex-direction: column; gap: 1rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 16px; padding: 2.5rem 3rem; text-align: left;
+    }
+    .contact-item {
+      display: flex; align-items: center; gap: 1rem;
+      color: var(--muted); font-size: 0.95rem;
+    }
+    .contact-item .icon { font-size: 1.1rem; }
+
+    /* ── Footer ──────────────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--border); padding: 2rem;
+      text-align: center; color: var(--muted); font-size: 0.85rem;
+    }
+
+    /* ── Responsive ──────────────────────────────────────── */
+    @media (max-width: 768px) {
+      nav .nav-links { display: none; }
+      .about-grid { grid-template-columns: 1fr; }
+      .stats { grid-template-columns: 1fr 1fr; }
+      .contact-box { padding: 1.5rem; width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav>
+    <a href="#" class="logo">digital<span>.</span>io</a>
+    <ul class="nav-links">
+      <li><a href="#products">Products</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Digital Products &amp; <span class="highlight">Technology Services</span> for Modern Businesses</h1>
+    <p>AI-powered tools, prompt engineering packs, data solutions, and content creation — built to help businesses and individuals work smarter.</p>
+    <div class="cta-row">
+      <a href="#products" class="btn btn-primary">Browse Products →</a>
+      <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+    </div>
+  </section>
+
+  <!-- Products -->
+  <section id="products">
+    <div class="section-label">Products</div>
+    <h2 class="section-title">Digital products that deliver results</h2>
+    <p class="section-desc">Ready-to-use tools and resources designed to accelerate your workflow and boost productivity.</p>
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="product-icon">🤖</div>
+        <h3>AI Prompt Packs</h3>
+        <p>Curated collections of 75+ high-performance prompts for business automation, content creation, marketing, and productivity. Plug-and-play with ChatGPT, Claude, and more.</p>
+        <span class="product-tag">Digital Download</span>
+      </div>
+      <div class="product-card">
+        <div class="product-icon">📄</div>
+        <h3>Data Conversion Tools</h3>
+        <p>Automated solutions for converting PDF documents into structured JSON data. Save hours of manual data extraction with reliable, repeatable workflows.</p>
+        <span class="product-tag">Digital Tool</span>
+      </div>
+      <div class="product-card">
+        <div class="product-icon">🌐</div>
+        <h3>Directory Websites</h3>
+        <p>Custom-built directory and listing websites with modern design, search functionality, and monetization-ready architecture. Perfect for niche markets.</p>
+        <span class="product-tag">Web Service</span>
+      </div>
+      <div class="product-card">
+        <div class="product-icon">📊</div>
+        <h3>Digital Guides &amp; Resources</h3>
+        <p>Comprehensive guides covering AI tools, productivity workflows, and technology reviews. Actionable insights you can apply immediately.</p>
+        <span class="product-tag">Digital Download</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services">
+    <div class="section-label">Services</div>
+    <h2 class="section-title">Freelance technology services</h2>
+    <p class="section-desc">Custom work tailored to your specific needs. Fast turnaround, clear communication, quality delivery.</p>
+    <div class="services-list">
+      <div class="service-row">
+        <div class="service-icon">⚡</div>
+        <div>
+          <h3>Short-Task Development</h3>
+          <p>Quick-turnaround projects — scripts, automations, data processing, web scraping, and tool integrations.</p>
+        </div>
+      </div>
+      <div class="service-row">
+        <div class="service-icon">🎨</div>
+        <div>
+          <h3>Content Creation</h3>
+          <p>Written content, video scripts, product reviews, and social media assets. SEO-optimized and audience-focused.</p>
+        </div>
+      </div>
+      <div class="service-row">
+        <div class="service-icon">🔧</div>
+        <div>
+          <h3>AI Workflow Consulting</h3>
+          <p>Help setting up AI-powered workflows, prompt engineering, and tool selection for your business needs.</p>
+        </div>
+      </div>
+      <div class="service-row">
+        <div class="service-icon">💻</div>
+        <div>
+          <h3>Web Development</h3>
+          <p>Landing pages, directory sites, and web applications. Clean code, modern design, mobile-responsive.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="section-label">About</div>
+    <h2 class="section-title">Building digital products that work</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>We create practical digital products and technology services for businesses and individuals who want to leverage AI and automation to work more efficiently.</p>
+        <p>From curated AI prompt packs to custom data conversion tools, directory websites, and content creation — everything we build is designed to deliver real, measurable value.</p>
+        <p>Based in Canada, serving clients globally.</p>
+      </div>
+      <div class="stats">
+        <div class="stat-box">
+          <div class="num">75+</div>
+          <div class="label">AI Prompts</div>
+        </div>
+        <div class="stat-box">
+          <div class="num">100%</div>
+          <div class="label">Digital Delivery</div>
+        </div>
+        <div class="stat-box">
+          <div class="num">24h</div>
+          <div class="label">Avg. Response</div>
+        </div>
+        <div class="stat-box">
+          <div class="num">Global</div>
+          <div class="label">Clients</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="section-label">Contact</div>
+    <h2 class="section-title">Let's work together</h2>
+    <p class="section-desc" style="margin: 0 auto;">Have a project in mind or want to learn more about our products? Reach out.</p>
+    <div class="contact-box">
+      <div class="contact-item">
+        <span class="icon">📧</span>
+        <span>hello@digitalio.ca</span>
+      </div>
+      <div class="contact-item">
+        <span class="icon">📍</span>
+        <span>Canada</span>
+      </div>
+      <div class="contact-item">
+        <span class="icon">💳</span>
+        <span>Secure payments via Stripe</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 digital.io — Digital Products &amp; Technology Services. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
