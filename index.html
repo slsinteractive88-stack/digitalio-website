@@ -3,84 +3,139 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Digital Products & Technology Services — AI tools, prompt packs, data solutions, and freelance development for modern businesses.">
   <title>Digital Products &amp; Technology Services</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      --bg: #0a0a0f;
-      --surface: #12121a;
-      --border: #1e1e2e;
-      --text: #e4e4e7;
-      --muted: #a1a1aa;
+      --bg: #06060a;
+      --bg2: #0c0c14;
+      --surface: #111118;
+      --surface2: #18181f;
+      --border: #1e1e2a;
+      --border2: #2a2a3a;
+      --text: #f0f0f5;
+      --text2: #c8c8d4;
+      --muted: #7878a0;
       --accent: #6366f1;
-      --accent-glow: rgba(99, 102, 241, 0.15);
-      --green: #22c55e;
+      --accent2: #818cf8;
+      --accent-glow: rgba(99, 102, 241, 0.12);
+      --accent-glow2: rgba(99, 102, 241, 0.25);
+      --green: #10b981;
+      --green-glow: rgba(16, 185, 129, 0.12);
+      --amber: #f59e0b;
+      --radius: 14px;
+      --radius-lg: 20px;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
       background: var(--bg);
       color: var(--text);
       line-height: 1.7;
       -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
-    /* ── Nav ─────────────────────────────────────────────── */
+    a { color: inherit; text-decoration: none; }
+
+    /* ─── NAV ─────────────────────────────────────────────── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: rgba(10, 10, 15, 0.85);
-      backdrop-filter: blur(16px);
+      background: rgba(6, 6, 10, 0.8);
+      backdrop-filter: blur(20px) saturate(1.4);
+      -webkit-backdrop-filter: blur(20px) saturate(1.4);
       border-bottom: 1px solid var(--border);
-      padding: 0 2rem;
-      height: 64px;
+      height: 72px;
       display: flex; align-items: center; justify-content: space-between;
+      padding: 0 max(2rem, calc((100vw - 1200px) / 2));
     }
-    nav .logo {
-      font-weight: 700; font-size: 1.1rem; letter-spacing: -0.02em;
-      color: var(--text); text-decoration: none;
+    .logo {
+      font-weight: 800; font-size: 1.25rem; letter-spacing: -0.03em;
+      color: var(--text); display: flex; align-items: center; gap: 0.5rem;
     }
-    nav .logo span { color: var(--accent); }
-    nav .nav-links { display: flex; gap: 2rem; list-style: none; }
-    nav .nav-links a {
-      color: var(--muted); text-decoration: none; font-size: 0.9rem;
-      transition: color 0.2s;
+    .logo-mark {
+      width: 32px; height: 32px; border-radius: 8px;
+      background: linear-gradient(135deg, var(--accent), #a855f7);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem; font-weight: 900; color: #fff;
     }
-    nav .nav-links a:hover { color: var(--text); }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
+    .nav-links a {
+      color: var(--muted); font-size: 0.875rem; font-weight: 500;
+      transition: color 0.2s; position: relative;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta {
+      background: var(--accent); color: #fff !important;
+      padding: 0.5rem 1.25rem; border-radius: 8px;
+      font-size: 0.85rem; font-weight: 600;
+      transition: background 0.2s, transform 0.2s !important;
+    }
+    .nav-cta:hover { background: #4f46e5; transform: translateY(-1px); }
 
-    /* ── Hero ────────────────────────────────────────────── */
+    /* ─── HERO ────────────────────────────────────────────── */
     .hero {
       min-height: 100vh;
       display: flex; flex-direction: column; align-items: center; justify-content: center;
       text-align: center;
-      padding: 8rem 2rem 4rem;
-      position: relative;
-      overflow: hidden;
+      padding: 10rem max(2rem, calc((100vw - 1200px) / 2)) 6rem;
+      position: relative; overflow: hidden;
     }
     .hero::before {
       content: '';
-      position: absolute; top: -50%; left: 50%; transform: translateX(-50%);
-      width: 800px; height: 800px;
-      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+      position: absolute; top: -40%; left: 50%; transform: translateX(-50%);
+      width: 900px; height: 900px;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 65%);
       pointer-events: none;
     }
-    .hero h1 {
-      font-size: clamp(2.2rem, 5vw, 3.8rem);
-      font-weight: 800; letter-spacing: -0.03em; line-height: 1.15;
-      max-width: 800px;
+    .hero::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0; height: 200px;
+      background: linear-gradient(to top, var(--bg), transparent);
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 100px; padding: 0.4rem 1rem; margin-bottom: 2rem;
+      font-size: 0.8rem; font-weight: 500; color: var(--muted);
       position: relative;
     }
-    .hero h1 .highlight {
-      background: linear-gradient(135deg, #6366f1, #a855f7, #6366f1);
+    .hero-badge .dot {
+      width: 7px; height: 7px; border-radius: 50%; background: var(--green);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+    .hero h1 {
+      font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+      font-weight: 900; letter-spacing: -0.04em; line-height: 1.1;
+      max-width: 850px; position: relative;
+    }
+    .hero h1 .grad {
+      background: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #6366f1 100%);
+      background-size: 200% auto;
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
       background-clip: text;
+      animation: shimmer 4s ease-in-out infinite;
+    }
+    @keyframes shimmer {
+      0%, 100% { background-position: 0% center; }
+      50% { background-position: 200% center; }
     }
     .hero p {
-      margin-top: 1.5rem;
-      font-size: 1.15rem; color: var(--muted); max-width: 560px;
-      position: relative;
+      margin-top: 1.75rem;
+      font-size: clamp(1rem, 1.8vw, 1.2rem); color: var(--muted); max-width: 580px;
+      line-height: 1.8; position: relative;
     }
     .hero .cta-row {
       margin-top: 2.5rem; display: flex; gap: 1rem; flex-wrap: wrap;
@@ -88,123 +143,213 @@
     }
     .btn {
       display: inline-flex; align-items: center; gap: 0.5rem;
-      padding: 0.85rem 1.75rem; border-radius: 10px;
-      font-size: 0.95rem; font-weight: 600; text-decoration: none;
-      transition: all 0.2s; cursor: pointer; border: none;
+      padding: 0.9rem 1.75rem; border-radius: 10px;
+      font-size: 0.925rem; font-weight: 600;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer; border: none; font-family: inherit;
     }
     .btn-primary {
-      background: var(--accent); color: #fff;
-      box-shadow: 0 4px 24px var(--accent-glow);
+      background: linear-gradient(135deg, var(--accent), #7c3aed);
+      color: #fff;
+      box-shadow: 0 4px 24px var(--accent-glow2), 0 1px 3px rgba(0,0,0,0.3);
     }
-    .btn-primary:hover { background: #4f46e5; transform: translateY(-1px); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px var(--accent-glow2), 0 2px 6px rgba(0,0,0,0.4); }
     .btn-ghost {
-      background: transparent; color: var(--text);
+      background: var(--surface); color: var(--text);
       border: 1px solid var(--border);
     }
-    .btn-ghost:hover { border-color: var(--muted); }
+    .btn-ghost:hover { border-color: var(--border2); background: var(--surface2); transform: translateY(-1px); }
 
-    /* ── Section base ────────────────────────────────────── */
-    section { padding: 6rem 2rem; max-width: 1100px; margin: 0 auto; }
+    /* ─── LOGO CLOUD / TRUST ──────────────────────────────── */
+    .trust {
+      padding: 3rem max(2rem, calc((100vw - 1200px) / 2));
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--bg2);
+      text-align: center;
+    }
+    .trust-label {
+      font-size: 0.75rem; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.12em; color: var(--muted); margin-bottom: 1.5rem;
+    }
+    .trust-items {
+      display: flex; justify-content: center; align-items: center; gap: 3rem;
+      flex-wrap: wrap; opacity: 0.5;
+    }
+    .trust-item {
+      font-size: 0.95rem; font-weight: 600; color: var(--muted);
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+
+    /* ─── SECTION BASE ─────────────────────────────────────── */
+    .section {
+      padding: 7rem max(2rem, calc((100vw - 1200px) / 2));
+    }
     .section-label {
-      font-size: 0.8rem; font-weight: 600; text-transform: uppercase;
-      letter-spacing: 0.1em; color: var(--accent); margin-bottom: 0.75rem;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.12em; color: var(--accent2); margin-bottom: 1rem;
+    }
+    .section-label::before {
+      content: ''; width: 24px; height: 2px; background: var(--accent);
+      border-radius: 2px;
     }
     .section-title {
-      font-size: clamp(1.6rem, 3vw, 2.2rem);
-      font-weight: 700; letter-spacing: -0.02em; margin-bottom: 1rem;
+      font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+      font-weight: 800; letter-spacing: -0.03em; line-height: 1.2;
+      margin-bottom: 1rem;
     }
-    .section-desc { color: var(--muted); max-width: 600px; font-size: 1.05rem; }
+    .section-desc { color: var(--muted); max-width: 620px; font-size: 1.05rem; line-height: 1.8; }
 
-    /* ── Products ────────────────────────────────────────── */
-    #products { padding-top: 4rem; }
+    /* ─── PRODUCTS ────────────────────────────────────────── */
+    #products { background: var(--bg); }
     .products-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem; margin-top: 3rem;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem; margin-top: 3.5rem;
     }
     .product-card {
       background: var(--surface); border: 1px solid var(--border);
-      border-radius: 16px; padding: 2rem;
-      transition: border-color 0.2s, transform 0.2s;
+      border-radius: var(--radius-lg); padding: 2.25rem;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative; overflow: hidden;
+    }
+    .product-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--accent), #a855f7);
+      opacity: 0; transition: opacity 0.3s;
     }
     .product-card:hover {
-      border-color: var(--accent); transform: translateY(-2px);
+      border-color: var(--border2); transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
     }
+    .product-card:hover::before { opacity: 1; }
     .product-icon {
-      width: 48px; height: 48px; border-radius: 12px;
+      width: 52px; height: 52px; border-radius: 14px;
       background: var(--accent-glow); display: flex; align-items: center;
-      justify-content: center; font-size: 1.4rem; margin-bottom: 1.25rem;
+      justify-content: center; font-size: 1.5rem; margin-bottom: 1.5rem;
+      border: 1px solid rgba(99, 102, 241, 0.15);
     }
-    .product-card h3 { font-size: 1.15rem; font-weight: 600; margin-bottom: 0.5rem; }
-    .product-card p { color: var(--muted); font-size: 0.925rem; line-height: 1.6; }
+    .product-card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.6rem; letter-spacing: -0.01em; }
+    .product-card p { color: var(--muted); font-size: 0.9rem; line-height: 1.7; }
     .product-tag {
-      display: inline-block; margin-top: 1rem;
-      font-size: 0.75rem; font-weight: 600; text-transform: uppercase;
-      letter-spacing: 0.05em; color: var(--green);
-      background: rgba(34, 197, 94, 0.1); padding: 0.3rem 0.75rem;
-      border-radius: 6px;
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      margin-top: 1.25rem;
+      font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.06em; color: var(--green);
+      background: var(--green-glow); padding: 0.35rem 0.8rem;
+      border-radius: 6px; border: 1px solid rgba(16, 185, 129, 0.15);
     }
 
-    /* ── Services ────────────────────────────────────────── */
-    #services { padding-top: 2rem; }
-    .services-list {
-      display: grid; gap: 0; margin-top: 2.5rem;
+    /* ─── SERVICES ────────────────────────────────────────── */
+    #services { background: var(--bg2); border-top: 1px solid var(--border); }
+    .services-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 1.5rem; margin-top: 3.5rem;
+    }
+    .service-card {
       background: var(--surface); border: 1px solid var(--border);
-      border-radius: 16px; overflow: hidden;
+      border-radius: var(--radius-lg); padding: 2rem;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    .service-row {
-      display: flex; align-items: flex-start; gap: 1.25rem;
-      padding: 1.75rem 2rem; border-bottom: 1px solid var(--border);
+    .service-card:hover {
+      border-color: var(--border2); transform: translateY(-3px);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.25);
     }
-    .service-row:last-child { border-bottom: none; }
     .service-icon {
-      width: 40px; height: 40px; border-radius: 10px;
+      width: 44px; height: 44px; border-radius: 12px;
       background: var(--accent-glow); display: flex; align-items: center;
-      justify-content: center; font-size: 1.1rem; flex-shrink: 0;
+      justify-content: center; font-size: 1.2rem; margin-bottom: 1.25rem;
     }
-    .service-row h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.3rem; }
-    .service-row p { color: var(--muted); font-size: 0.9rem; }
+    .service-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .service-card p { color: var(--muted); font-size: 0.875rem; line-height: 1.7; }
 
-    /* ── About ───────────────────────────────────────────── */
-    #about .about-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
-      align-items: start; margin-top: 2.5rem;
+    /* ─── ABOUT ───────────────────────────────────────────── */
+    #about { background: var(--bg); }
+    .about-grid {
+      display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 4rem;
+      align-items: start; margin-top: 3rem;
     }
-    .about-text p { color: var(--muted); margin-bottom: 1rem; font-size: 1rem; }
+    .about-text p { color: var(--text2); margin-bottom: 1.25rem; font-size: 1rem; line-height: 1.8; }
     .stats {
       display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
     }
     .stat-box {
       background: var(--surface); border: 1px solid var(--border);
-      border-radius: 14px; padding: 1.5rem; text-align: center;
+      border-radius: var(--radius); padding: 1.75rem 1.5rem; text-align: center;
+      transition: border-color 0.2s;
     }
-    .stat-box .num { font-size: 1.8rem; font-weight: 800; color: var(--accent); }
-    .stat-box .label { font-size: 0.8rem; color: var(--muted); margin-top: 0.25rem; }
+    .stat-box:hover { border-color: var(--border2); }
+    .stat-box .num { font-size: 2rem; font-weight: 900; color: var(--accent2); letter-spacing: -0.02em; }
+    .stat-box .label { font-size: 0.75rem; color: var(--muted); margin-top: 0.35rem; font-weight: 500; }
 
-    /* ── Contact ─────────────────────────────────────────── */
-    #contact { text-align: center; }
-    .contact-box {
-      margin-top: 2.5rem; display: inline-flex; flex-direction: column; gap: 1rem;
+    /* ─── TESTIMONIALS ────────────────────────────────────── */
+    #testimonials { background: var(--bg2); border-top: 1px solid var(--border); }
+    .testimonials-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem; margin-top: 3.5rem;
+    }
+    .testimonial-card {
       background: var(--surface); border: 1px solid var(--border);
-      border-radius: 16px; padding: 2.5rem 3rem; text-align: left;
+      border-radius: var(--radius-lg); padding: 2rem;
+    }
+    .testimonial-card .stars { color: var(--amber); font-size: 0.9rem; margin-bottom: 1rem; letter-spacing: 0.1em; }
+    .testimonial-card p { color: var(--text2); font-size: 0.925rem; line-height: 1.75; font-style: italic; }
+    .testimonial-author {
+      display: flex; align-items: center; gap: 0.75rem; margin-top: 1.5rem;
+      padding-top: 1.25rem; border-top: 1px solid var(--border);
+    }
+    .testimonial-avatar {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--accent-glow); display: flex; align-items: center;
+      justify-content: center;
+      font-size: 0.8rem; font-weight: 700; color: var(--accent2);
+    }
+    .testimonial-author .name { font-size: 0.85rem; font-weight: 600; color: var(--text); }
+    .testimonial-author .role { font-size: 0.75rem; color: var(--muted); }
+
+    /* ─── CONTACT ─────────────────────────────────────────── */
+    #contact {
+      background: var(--bg); text-align: center;
+      border-top: 1px solid var(--border);
+    }
+    .contact-inner {
+      max-width: 500px; margin: 0 auto;
+    }
+    .contact-methods {
+      display: flex; flex-direction: column; gap: 1rem; margin-top: 3rem;
     }
     .contact-item {
       display: flex; align-items: center; gap: 1rem;
-      color: var(--muted); font-size: 0.95rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.25rem 1.5rem;
+      font-size: 0.925rem; color: var(--text2);
+      transition: border-color 0.2s;
     }
-    .contact-item .icon { font-size: 1.1rem; }
+    .contact-item:hover { border-color: var(--border2); }
+    .contact-item .icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: var(--accent-glow); display: flex; align-items: center;
+      justify-content: center; font-size: 1rem; flex-shrink: 0;
+    }
 
-    /* ── Footer ──────────────────────────────────────────── */
+    /* ─── FOOTER ──────────────────────────────────────────── */
     footer {
-      border-top: 1px solid var(--border); padding: 2rem;
-      text-align: center; color: var(--muted); font-size: 0.85rem;
+      border-top: 1px solid var(--border); padding: 2.5rem max(2rem, calc((100vw - 1200px) / 2));
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 1rem;
     }
+    footer p { color: var(--muted); font-size: 0.8rem; }
+    footer .footer-links { display: flex; gap: 2rem; }
+    footer .footer-links a { color: var(--muted); font-size: 0.8rem; transition: color 0.2s; }
+    footer .footer-links a:hover { color: var(--text); }
 
-    /* ── Responsive ──────────────────────────────────────── */
+    /* ─── RESPONSIVE ──────────────────────────────────────── */
     @media (max-width: 768px) {
       nav .nav-links { display: none; }
-      .about-grid { grid-template-columns: 1fr; }
-      .stats { grid-template-columns: 1fr 1fr; }
-      .contact-box { padding: 1.5rem; width: 100%; }
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .services-grid { grid-template-columns: 1fr; }
+      .trust-items { gap: 1.5rem; }
+      .hero { padding-top: 8rem; }
     }
   </style>
 </head>
@@ -212,27 +357,47 @@
 
   <!-- Nav -->
   <nav>
-    <a href="#" class="logo">digital<span>.</span>io</a>
+    <a href="#" class="logo">
+      <div class="logo-mark">D</div>
+      digital.io
+    </a>
     <ul class="nav-links">
       <li><a href="#products">Products</a></li>
       <li><a href="#services">Services</a></li>
       <li><a href="#about">About</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#contact" class="nav-cta">Contact</a></li>
     </ul>
   </nav>
 
   <!-- Hero -->
   <section class="hero">
-    <h1>Digital Products &amp; <span class="highlight">Technology Services</span> for Modern Businesses</h1>
-    <p>AI-powered tools, prompt engineering packs, data solutions, and content creation — built to help businesses and individuals work smarter.</p>
+    <div class="hero-badge">
+      <span class="dot"></span>
+      Open for business — accepting new clients
+    </div>
+    <h1>Digital Products &amp; <span class="grad">Technology Services</span> for Modern Businesses</h1>
+    <p>AI-powered tools, prompt engineering packs, data solutions, and freelance development — built to help businesses and individuals work smarter.</p>
     <div class="cta-row">
       <a href="#products" class="btn btn-primary">Browse Products →</a>
-      <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+      <a href="#services" class="btn btn-ghost">View Services</a>
     </div>
   </section>
 
+  <!-- Trust -->
+  <div class="trust">
+    <div class="trust-label">Trusted tools &amp; platforms we work with</div>
+    <div class="trust-items">
+      <div class="trust-item">⚡ Stripe</div>
+      <div class="trust-item">🤖 OpenAI</div>
+      <div class="trust-item">🧠 Anthropic Claude</div>
+      <div class="trust-item">🐍 Python</div>
+      <div class="trust-item">☁️ AWS</div>
+      <div class="trust-item">📊 Google Analytics</div>
+    </div>
+  </div>
+
   <!-- Products -->
-  <section id="products">
+  <section class="section" id="products">
     <div class="section-label">Products</div>
     <h2 class="section-title">Digital products that deliver results</h2>
     <p class="section-desc">Ready-to-use tools and resources designed to accelerate your workflow and boost productivity.</p>
@@ -241,75 +406,67 @@
         <div class="product-icon">🤖</div>
         <h3>AI Prompt Packs</h3>
         <p>Curated collections of 75+ high-performance prompts for business automation, content creation, marketing, and productivity. Plug-and-play with ChatGPT, Claude, and more.</p>
-        <span class="product-tag">Digital Download</span>
+        <span class="product-tag">✦ Digital Download</span>
       </div>
       <div class="product-card">
         <div class="product-icon">📄</div>
         <h3>Data Conversion Tools</h3>
         <p>Automated solutions for converting PDF documents into structured JSON data. Save hours of manual data extraction with reliable, repeatable workflows.</p>
-        <span class="product-tag">Digital Tool</span>
+        <span class="product-tag">✦ Digital Tool</span>
       </div>
       <div class="product-card">
         <div class="product-icon">🌐</div>
         <h3>Directory Websites</h3>
         <p>Custom-built directory and listing websites with modern design, search functionality, and monetization-ready architecture. Perfect for niche markets.</p>
-        <span class="product-tag">Web Service</span>
+        <span class="product-tag">✦ Web Service</span>
       </div>
       <div class="product-card">
         <div class="product-icon">📊</div>
         <h3>Digital Guides &amp; Resources</h3>
         <p>Comprehensive guides covering AI tools, productivity workflows, and technology reviews. Actionable insights you can apply immediately.</p>
-        <span class="product-tag">Digital Download</span>
+        <span class="product-tag">✦ Digital Download</span>
       </div>
     </div>
   </section>
 
   <!-- Services -->
-  <section id="services">
+  <section class="section" id="services">
     <div class="section-label">Services</div>
     <h2 class="section-title">Freelance technology services</h2>
     <p class="section-desc">Custom work tailored to your specific needs. Fast turnaround, clear communication, quality delivery.</p>
-    <div class="services-list">
-      <div class="service-row">
+    <div class="services-grid">
+      <div class="service-card">
         <div class="service-icon">⚡</div>
-        <div>
-          <h3>Short-Task Development</h3>
-          <p>Quick-turnaround projects — scripts, automations, data processing, web scraping, and tool integrations.</p>
-        </div>
+        <h3>Short-Task Development</h3>
+        <p>Quick-turnaround projects — scripts, automations, data processing, web scraping, and tool integrations.</p>
       </div>
-      <div class="service-row">
+      <div class="service-card">
         <div class="service-icon">🎨</div>
-        <div>
-          <h3>Content Creation</h3>
-          <p>Written content, video scripts, product reviews, and social media assets. SEO-optimized and audience-focused.</p>
-        </div>
+        <h3>Content Creation</h3>
+        <p>Written content, video scripts, product reviews, and social media assets. SEO-optimized and audience-focused.</p>
       </div>
-      <div class="service-row">
+      <div class="service-card">
         <div class="service-icon">🔧</div>
-        <div>
-          <h3>AI Workflow Consulting</h3>
-          <p>Help setting up AI-powered workflows, prompt engineering, and tool selection for your business needs.</p>
-        </div>
+        <h3>AI Workflow Consulting</h3>
+        <p>Help setting up AI-powered workflows, prompt engineering, and tool selection for your business needs.</p>
       </div>
-      <div class="service-row">
+      <div class="service-card">
         <div class="service-icon">💻</div>
-        <div>
-          <h3>Web Development</h3>
-          <p>Landing pages, directory sites, and web applications. Clean code, modern design, mobile-responsive.</p>
-        </div>
+        <h3>Web Development</h3>
+        <p>Landing pages, directory sites, and web applications. Clean code, modern design, mobile-responsive.</p>
       </div>
     </div>
   </section>
 
   <!-- About -->
-  <section id="about">
+  <section class="section" id="about">
     <div class="section-label">About</div>
     <h2 class="section-title">Building digital products that work</h2>
     <div class="about-grid">
       <div class="about-text">
         <p>We create practical digital products and technology services for businesses and individuals who want to leverage AI and automation to work more efficiently.</p>
         <p>From curated AI prompt packs to custom data conversion tools, directory websites, and content creation — everything we build is designed to deliver real, measurable value.</p>
-        <p>Based in Canada, serving clients globally.</p>
+        <p>Based in Canada, serving clients globally. All products are delivered digitally, ensuring fast access and instant value.</p>
       </div>
       <div class="stats">
         <div class="stat-box">
@@ -332,30 +489,80 @@
     </div>
   </section>
 
+  <!-- Testimonials -->
+  <section class="section" id="testimonials">
+    <div class="section-label">Testimonials</div>
+    <h2 class="section-title">What clients are saying</h2>
+    <p class="section-desc">Feedback from businesses and individuals who've used our products and services.</p>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"The AI prompt pack saved us dozens of hours. The quality of the prompts is outstanding — they just work out of the box with ChatGPT and Claude."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">MK</div>
+          <div>
+            <div class="name">Mark K.</div>
+            <div class="role">Marketing Director</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"The PDF-to-JSON tool was exactly what we needed. Clean, structured data output that integrated perfectly with our existing pipeline. Highly recommended."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">SL</div>
+          <div>
+            <div class="name">Sarah L.</div>
+            <div class="role">Data Analyst</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"Fast turnaround on a custom directory site. Clean code, modern design, and they even helped with SEO setup. Great experience from start to finish."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">JR</div>
+          <div>
+            <div class="name">James R.</div>
+            <div class="role">Startup Founder</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Contact -->
-  <section id="contact">
-    <div class="section-label">Contact</div>
-    <h2 class="section-title">Let's work together</h2>
-    <p class="section-desc" style="margin: 0 auto;">Have a project in mind or want to learn more about our products? Reach out.</p>
-    <div class="contact-box">
-      <div class="contact-item">
-        <span class="icon">📧</span>
-        <span>hello@digitalio.ca</span>
-      </div>
-      <div class="contact-item">
-        <span class="icon">📍</span>
-        <span>Canada</span>
-      </div>
-      <div class="contact-item">
-        <span class="icon">💳</span>
-        <span>Secure payments via Stripe</span>
+  <section class="section" id="contact">
+    <div class="contact-inner">
+      <div class="section-label">Contact</div>
+      <h2 class="section-title">Let's work together</h2>
+      <p class="section-desc" style="margin: 0 auto;">Have a project in mind or want to learn more about our products? Reach out.</p>
+      <div class="contact-methods">
+        <div class="contact-item">
+          <div class="icon">📍</div>
+          <span>Based in Canada — serving clients globally</span>
+        </div>
+        <div class="contact-item">
+          <div class="icon">💳</div>
+          <span>Secure payments via Stripe</span>
+        </div>
+        <div class="contact-item">
+          <div class="icon">⚡</div>
+          <span>Digital delivery — instant access after purchase</span>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2026 digital.io — Digital Products &amp; Technology Services. All rights reserved.</p>
+    <p>&copy; 2026 digital.io — Digital Products &amp; Technology Services</p>
+    <div class="footer-links">
+      <a href="#products">Products</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
   </footer>
 
 </body>
